@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--web components primitives-->
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+    <!--paper element-->
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+
+    <!--iron element-->
+    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="bower_components/iron-collapse/iron-collapse.html">
+
+    <!--customs element-->
+    <link rel="import" href="munna-element.html">
+
+    <style>
+      /* CSS rules for your element */
+      section{
+        float:left;
+        width: 800px;
+        padding:50px
+      }
+      body{
+        font-family: 'Roboto';
+      }
+      .page{
+        height: 800px;
+        width: 720px;
+        float:left;
+        padding:50px;
+        margin: 10px;
+        background-color: #eeddff;
+      }
+      .box{
+        box-shadow: 5px 5px 5px #888888;
+        margin: 1px;
+      }
+      .menu {
+        height: auto;
+        width: 320px;
+        float:left;
+      }
+      .iContent{
+        border: 0px solid #556677;
+        background-color: #dddddd;
+      }
+      .listContent{
+        height: 50px;
+        box-shadow: 1px 1px 1px #888888;
+        margin: 5px;
+        background-color: #ffffff;
+      }
+      .listMod{
+        padding: 3px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <paper-toolbar class="admin-header box" style="background-color:#445566;">
+      <paper-icon-button icon="home" on-tap="menuAction"></paper-icon-button>
+      <div class="title">Administrator</div>
+      <paper-icon-button icon="more-vert" on-tap="moreAction"></paper-icon-button>
+    </paper-toolbar>
+    <div class="menu">
+      <munna-item class="box" head = "Template">
+        <div class="layout">
+          header panel <input list="template" name="template">
+          <datalist id="template">
+            <option value="standard">
+            <option value="seamed">
+            <option value="scroll">
+            <option value="waterfall">
+            <option value="waterfall-tall">
+            <option value="cover">
+          </datalist>
+        </div>
+        <div class="size">
+          width <input min="1" max="4000" type="number" name="width" value="0">
+          <input size="3" list="unit" name="unit" value="px">
+          height <input min="1" max="4000" type="number" name="height" value="0">
+          <input size="3" list="unit" name="unit" value="px">
+          <datalist id="unit">
+            <option value="px">
+            <option value="%">
+          </datalist>
+        </div>
+        <div class="bgtemplate">
+          <input type="color" name="color">
+          <input type="file" name="img">
+        </div>
+      </munna-item>
+      <munna-item class="box" head = "Module">
+        <form class="insMod" method="post">
+          install module file
+          <input type="file" name="module">
+          <input type="submit" name="install" value="install">
+        </form>
+        <div class="listMod">
+            <div class="iContent">
+              <div class="listContent">
+                module 1
+              </div>
+              <div class="listContent">
+                module 2
+              </div>
+              <div class="listContent">
+                module 3
+              </div>
+              <div class="listContent">
+                module 4
+              </div>
+            </div>
+        </div>
+
+      </munna-item>
+
+      <munna-item class="box" head = "User">
+
+      </munna-item>
+      <munna-item class="box" head = "Contents">
+
+      </munna-item>
+      <munna-item class="box" head = "Language">
+
+      </munna-item>
+    </div>
+    <section>
+      <div class="page box">
+        page
+      </div>
+    </section>
+
+  </body>
+</html>
