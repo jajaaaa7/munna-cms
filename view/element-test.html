@@ -1,0 +1,58 @@
+<!--polymer library-->
+<link rel="import" href="bower_components/polymer/polymer.html">
+<script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+<!--paper element-->
+<link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+<link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+
+<!--iron element-->
+<link rel="import" href="bower_components/iron-collapse/iron-collapse.html">
+
+
+<dom-module id="munna-item">
+
+  <template>
+    <style>
+      /* CSS rules for your element */
+      /*paper-scroll-header-panel{
+        height: 300px;
+        width: inherit;
+      }*/
+      .collapse-content {
+        padding: 15px;
+        background-color: #c0c4de;
+      }
+    </style>
+
+    <!-- local DOM for your element -->
+
+      <!--paper-scroll-header-panel fixed-->
+
+        <paper-toolbar  on-click="toggle">
+          <div class="title">{{header}}</div>
+        </paper-toolbar>
+
+        <div>
+          <iron-collapse id="collapse">
+            <div class="collapse-content">
+              <content></content>
+            </div>
+          </iron-collapse>
+        </div>
+
+      <!--/paper-scroll-header-panel-->
+  </template>
+
+  <script>
+    // element registration
+    Polymer({
+      is: "munna-item",
+      toggle: function() {
+        this.$.collapse.toggle();
+      }
+      // add properties and methods on the element's prototype
+    });
+  </script>
+
+</dom-module>

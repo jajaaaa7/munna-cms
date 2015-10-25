@@ -8,6 +8,10 @@
     <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
     <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
     <link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+    <link rel="import" href="bower_components/paper-menu/paper-menu.html">
+    <link rel="import" href="bower_components/paper-item/paper-itme.html">
+    <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
 
     <!--iron element-->
     <link rel="import" href="bower_components/iron-icons/iron-icons.html">
@@ -18,28 +22,27 @@
 
     <style>
       /* CSS rules for your element */
-      section{
-        float:left;
-        width: 800px;
-        padding:50px
-      }
       body{
         font-family: 'Roboto';
       }
+
+      paper-item{
+        display: block;
+      }
       .page{
-        height: 800px;
-        width: 720px;
         float:left;
-        padding:50px;
-        margin: 10px;
+        width: auto;
+        height: auto;
+        padding:0px;
+        margin: 50px;
         background-color: #eeddff;
       }
       .box{
         box-shadow: 5px 5px 5px #888888;
-        margin: 1px;
+        margin: 10px;
       }
       .menu {
-        height: auto;
+        height:inherit;
         width: 320px;
         float:left;
       }
@@ -56,19 +59,91 @@
       .listMod{
         padding: 3px;
       }
+      .dropdown-size{
+        width: 250px;
+      }
+      .input-size{
+        width: 100px;
+      }
     </style>
 
   </head>
-  <body>
-    <paper-toolbar class="admin-header box" style="background-color:#445566;">
+  <body class="fullbleed">
+    <paper-toolbar class="admin-header" style="background-color:#445566;">
       <paper-icon-button icon="home" on-tap="menuAction"></paper-icon-button>
       <div class="title">Administrator</div>
       <paper-icon-button icon="more-vert" on-tap="moreAction"></paper-icon-button>
     </paper-toolbar>
     <div class="menu">
-      <munna-item class="box" head = "Template">
+      <paper-scroll-header-panel fixed class="menu">
+        <div class="content">
+          <munna-item header = "Template">
+            <div class="layout">
+              <paper-dropdown-menu class="dropdown-size" label="header panel">
+                <paper-menu class="dropdown-content dropdown-size">
+                  <paper-item>standard</paper-item>
+                  <paper-item>seamed</paper-item>
+                  <paper-item>scroll</paper-item>
+                  <paper-item>waterfall</paper-item>
+                  <paper-item>waterfall-tall</paper-item>
+                  <paper-item>cover</paper-item>
+                </paper-menu>
+              </paper-dropdown-menu>
+            </div>
+            <div class="size">
+              <paper-input class="input-size" type="number" label="width">
+                <div suffix>px</div>
+              </paper-input>
+              <paper-input class="input-size" type="number" label="height">
+                <div suffix>px</div>
+              </paper-input>
+            </div>
+            <div class="bgtemplate">
+              <paper-input type="color" label="background color"></paper-input>
+              <paper-input type="file" label="background picture"></paper-input>
+            </div>
+          </munna-item>
+          <munna-item header = "Module">
+            <form class="insMod" method="post">
+              install module file
+              <input type="file" name="module">
+              <input type="submit" name="install" value="install">
+            </form>
+            <div class="listMod">
+                <div class="iContent">
+                  <div class="listContent">
+                    module 1
+                  </div>
+                  <div class="listContent">
+                    module 2
+                  </div>
+                  <div class="listContent">
+                    module 3
+                  </div>
+                  <div class="listContent">
+                    module 4
+                  </div>
+                </div>
+            </div>
+
+          </munna-item>
+
+          <munna-item  header = "User">
+
+          </munna-item>
+          <munna-item header = "Contents">
+
+          </munna-item>
+          <munna-item header = "Language">
+
+          </munna-item>
+        </div>
+      </paper-scroll-header-panel>
+    </div>
+    <!--div class="menu">
+      <munna-item header = "Template">
         <div class="layout">
-          header panel <input list="template" name="template">
+          header panel <input list="template" name="template" value="standard">
           <datalist id="template">
             <option value="standard">
             <option value="seamed">
@@ -93,7 +168,7 @@
           <input type="file" name="img">
         </div>
       </munna-item>
-      <munna-item class="box" head = "Module">
+      <munna-item header = "Module">
         <form class="insMod" method="post">
           install module file
           <input type="file" name="module">
@@ -118,16 +193,16 @@
 
       </munna-item>
 
-      <munna-item class="box" head = "User">
+      <munna-item  header = "User">
 
       </munna-item>
-      <munna-item class="box" head = "Contents">
+      <munna-item header = "Contents">
 
       </munna-item>
-      <munna-item class="box" head = "Language">
+      <munna-item header = "Language">
 
       </munna-item>
-    </div>
+    </div-->
     <section>
       <div class="page box">
         page
