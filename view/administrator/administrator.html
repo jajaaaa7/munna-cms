@@ -3,30 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/jquery-ui-1.11.4/jquery-ui.js"></script>
-    <link rel="stylesheet" href="/jquery-ui-1.11.4/jquery-ui.css">
 
-    <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
-    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
-    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
 
-    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
+    <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 
-    <link rel="import" href="munna-element.html">
-    <link rel="import" href="munna-module.html">
+    <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+
+    <link rel="import" href="../munna-element.html">
     <script type="text/javascript">
-      var idcon=0;
       function myFunction() {
         var x = document.getElementById("headerPanel").value;
-        var y = "";
-        if (x=="cover") {
-          y="class='tall'"
-        }
         document.getElementById("page").innerHTML = '\
         <paper-header-panel mode="'+x+'">\
-          <paper-toolbar '+y+'>\
+          <paper-toolbar>\
             <div class="title">'+x+'</div>\
           </paper-toolbar>\
             <div id="mainPanel">\
@@ -37,39 +29,6 @@
             </div>\
           </paper-header-panel>';
       }
-
-      $(function() {
-        $("#modContianer").mouseover(function(event){
-          $( "#modContianer div.mod" ).draggable({
-              containment: "#page"
-            });
-          $("#modContianer div.mod").attr("draggable", "true");
-        });
-        $("#modContianer").mouseout(function(){
-          $("#modContianer div.mod").attr("draggable", "false");
-        });
-        $("#add").click(function(){
-          $("#modContianer").append(
-            '<div class="mod">\
-            <div>\
-              <div class="login">\
-                <p><b>Login</b></p>\
-                <div class="username">\
-                  User: <input type="text" name="user">\
-                </div>\
-                <div class="pass">\
-                  Password: <input type="password" name="pass">\
-                </div>\
-                <div class="submit">\
-                  <button type="button" name="btlogin">login</button>\
-                  <button type="button" name="btsignin">sigin</button>\
-                </div>\
-              </div>\
-            </div>\
-            </div>');
-        });
-
-      });
     </script>
     <style>
 
@@ -77,17 +36,15 @@
         font-family: 'Roboto';
       }
 
-      section, .page{
+      .page{
         float:left;
         position: fixed;
         right: 8%;
         width: 800px;
         top: 10%;
         height: 80%;
-      }
-      .page{
         padding:0px;
-
+        margin: 50px;
         background-color: #eeddff;
       }
       .box{
@@ -126,19 +83,6 @@
       }
       .cover{
         margin: 80px;
-      }
-      .mod{
-        background-color: #ffffff;
-        border-color: black;
-        position: absolute;
-        min-width: 100px;
-        min-height: 100px;
-      }
-      .mod[draggable=true] {
-        border-color: red;
-        border-style: solid;
-        resize: both;
-        overflow: auto;
       }
 
     </style>
@@ -193,9 +137,7 @@
                   <div class="listMod">
                       <div class="iContent">
                         <div class="listContent">
-                          <div>login
-                            <paper-icon-button id="add" icon="add-circle"></paper-icon-button>
-                          </div>
+                          module 1
                         </div>
                         <div class="listContent">
                           module 2
@@ -220,27 +162,21 @@
                 <munna-item header = "Language">
 
                 </munna-item>
-              </div>
-
+              </div-->
               <section>
                 <div id="page" class="page box" contenteditable="true">
                   <paper-header-panel>
                     <paper-toolbar>
-                      <paper-icon-button icon="menu"></paper-icon-button>
                       <div class="title">standard</div>
-                      <paper-icon-button icon="menu"></paper-icon-button>
                     </paper-toolbar>
                       <div id="mainPanel">
                         <div id="mainContainer">
-
-                          <div id="webContent" class="content contenttest">
-                          </div>
+                          <div class="content contenttest"></div>
                         </div>
                         <div id="dropShadow"></div>
                       </div>
                     </paper-header-panel>
                 </div>
-                <div id="modContianer"><</div>
               </section>
 
             </div>

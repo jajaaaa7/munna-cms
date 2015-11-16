@@ -10,7 +10,7 @@
     <!--paper element-->
     <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
     <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
-    <link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+    <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
     <link rel="import" href="bower_components/paper-menu/paper-menu.html">
     <link rel="import" href="bower_components/paper-item/paper-itme.html">
     <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
@@ -20,51 +20,25 @@
     <link rel="import" href="bower_components/iron-collapse/iron-collapse.html">
 
     <style>
-      paper-scroll-header-panel {
-        --paper-scroll-header-panel-condensed-header: {
-          background-color: red
-        };
-        --paper-scroll-header-panel-full-header: {
-          background-color: red
-        };
-      }
-      .content-size{
+
+      .content{
         height: 2000px;
-      }
-      .box{
-        float:left;
-        margin-right: 1px;
-        width: 300px;
-        height: 100%;
-      }
-      div.content{
         background: linear-gradient(rgb(214, 227, 231), lightblue);
       }
+
 
     </style>
 
   </head>
   <body class="fullbleed">
-    <div class="box">
-      <paper-scroll-header-panel fixed class="box">
-        <paper-toolbar>
-          <div>fixed</div>
-        </paper-toolbar>
-        <div class="content content-size">
-          hello
+    <paper-header-panel mode="waterfall" class="fit">
+      <paper-toolbar ><div class="title">waterfall</div></paper-toolbar>
+        <div id="mainPanel">
+          <div id="mainContainer">
+            <div class="content"></div>
+          </div>
+          <div id="dropShadow"></div>
         </div>
-      </paper-scroll-header-panel>
-    </div>
-    <div class="box">
-      <paper-scroll-header-panel condenses class="box">
-        <paper-toolbar class="tall">
-          <div>condenses</div>
-        </paper-toolbar>
-        <div class="content content-size">
-          hello
-        </div>
-      </paper-scroll-header-panel>
-    </div>
-    </div>
+      </paper-header-panel>
   </body>
 </html>
